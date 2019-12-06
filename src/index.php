@@ -2,21 +2,14 @@
 
 namespace Auth;
 
-ini_set('error_reporting', E_ALL);
+ini_set('error_reporting', E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED);
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 
 
 // Автозагрузка PSR-4
-use Auth\services\Db;
-
 require 'vendor/autoload.php';
 
-// Подключаем файл конфигурации
-require 'app/configs/config.php';
-
-// Подключаем список маршрутов
-require 'app/configs/routes.php';
 
 session_start();
 
