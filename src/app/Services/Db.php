@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Auth\services;
+namespace Auth\Services;
 
 
 use PDO;
@@ -16,7 +16,7 @@ class Db
 
     public function __construct()
     {
-        $dbConfig = (require __DIR__ . '/../configs/config.php')['db'];
+        $dbConfig = (require __DIR__ . '/../Configs/config.php')['db'];
 
         try {
             $this->connection = new PDO(
@@ -78,15 +78,11 @@ class Db
 
     public function insert(string $table, $params = [], $values = []): void
     {
-
-
         $sql = 'INSERT INTO ' . $table . '(' . implode(',', $params) . ') VALUES (' . implode(',', $this->prepareValues($params)) . ')';
 
         $psql = $this->connection->prepare($sql);
 
-        $result = $psql->execute($values);
-
-
+        $psql->execute($values);
     }
 
     public function updateOne(string $table, $param, $value, $id)

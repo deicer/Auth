@@ -2,7 +2,7 @@
 
 namespace Auth\Models;
 
-use Auth\services\Db;
+use Auth\Services\Db;
 
 abstract class Model
 {

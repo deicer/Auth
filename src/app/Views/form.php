@@ -1,4 +1,4 @@
-div class="container">
+<div class="container">
     <h1 class="text-center">Форма обратной связи</h1>
     <form action="" class="form-horizontal" id="ajax_form">
         <div id="userName" class="form-group">

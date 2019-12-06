@@ -5,7 +5,7 @@
 
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
     <title><?=
         $titlePage ?></title>

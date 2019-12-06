@@ -135,8 +135,6 @@ class User extends Model
 
     public static function isUserAuth(): bool
     {
-        var_dump($_SESSION);
-        die();
         return isset($_SESSION['auth_token']) ? true : false;
     }
 

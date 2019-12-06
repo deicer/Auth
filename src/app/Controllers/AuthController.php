@@ -3,11 +3,10 @@
 namespace Auth\Controllers;
 
 use Auth\Models\User;
-use Auth\Template;
 use Auth\View;
 use InvalidArgumentException;
 
-class AuthController
+class   AuthController
 {
     public function login()
     {

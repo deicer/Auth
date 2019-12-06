@@ -2,20 +2,20 @@
 
 namespace Auth;
 
-
 class Router
 {
     // массив с маршрутами
     private $routes;
     private $uri;
 
-    /**
-     * Router constructor.
-     * @param string $uri
-     */
+	/**
+	 * Router constructor.
+	 *
+	 * @param string $uri
+	 */
     public function __construct(string $uri)
     {
-        $this->routes = (require __DIR__ . '/configs/routes.php')['routes'];
+        $this->routes = (require __DIR__ . '/Configs/routes.php')['routes'];
         $this->uri = $uri;
     }
 
