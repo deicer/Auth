@@ -6,69 +6,64 @@ use Auth\Models\User;
 use Auth\View;
 use InvalidArgumentException;
 
-class   AuthController
+class   AuthController extends Controller
 {
-    public function login()
-    {
+	public function login()
+	{
 
-        if ($this->isPost()) {
-            try {
-                $user = new User($_POST);
-                $user->loginValidate();
-            } catch (InvalidArgumentException $e) {
-                $registerForm = View::render('login', ['error' => $e->getMessage()]);
-                echo View::render('main', ['titlePage'=>'Вход','content' => $registerForm]);
+		if ($this->isPost()) {
+			try {
+				$user = new User($_POST);
+				$user->loginValidate();
+			} catch (InvalidArgumentException $e) {
+				$registerForm = View::render('login', ['error' => $e->getMessage()]);
+				echo View::render('main', ['titlePage' => 'Вход', 'content' => $registerForm]);
 
-                return;
-            }
+				return;
+			}
 
-            $userData = $user->login();
+			$user->login();
+			header('Location: /');
+			die();
+		}
 
-        }
+		$loginForm = View::render('login', []);
 
-        $loginForm = View::render('login', []);
-
-        echo View::render('main', ['titlePage'=>'Вход в систему','content' => $loginForm]);
-
-
-    }
-
-    public function register(): void
-    {
+		echo View::render('main', ['titlePage' => 'Вход в систему', 'content' => $loginForm]);
 
 
-        if ($this->isPost()) {
-            try {
+	}
 
-                $user = new User($_POST);
-                $user->registerValidate();
-            } catch (InvalidArgumentException $e) {
-                $registerForm = View::render('register', ['error' => $e->getMessage()]);
-                echo View::render('main', ['titlePage'=>'Регистрация','content' => $registerForm]);
+	public function register(): void
+	{
+		if ($this->isPost()) {
+			try {
+				$user = new User($_POST);
+				$user->registerValidate();
+			} catch (InvalidArgumentException $e) {
+				$registerForm = View::render('register', ['error' => $e->getMessage()]);
+				echo View::render('main',
+					['titlePage' => 'Регистрация', 'content' => $registerForm]);
 
-                return;
-            }
+				return;
+			}
 
-            $userData = $user->register();
-            $profile = View::render('profile', ['userData'=>$userData]);
-            echo View::render('main', ['titlePage'=>'Профиль пользователя','content' => $profile]);
+			$user->register();
+			header('Location: /');
+			die();
+		}
 
-            return;
-        }
+		$registerForm = View::render('register', []);
 
-        $registerForm = View::render('register', []);
+		echo View::render('main', ['titlePage' => 'Регистрация', 'content' => $registerForm]);
 
-        echo View::render('main', ['titlePage'=>'Регистрация','content' => $registerForm]);
+	}
 
-    }
-
-    private function isPost(): bool
-    {
-        return !empty($_POST);
-    }
-
-
-
-
+	public function logout()
+	{
+		session_destroy();
+		header('Location: /login');
+		die();
+	}
 
 }
