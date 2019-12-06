@@ -2,7 +2,7 @@
 
 return [
     'db' => [
-        'host' => '172.25.0.4',
+        'host' => 'mysql',
         'dbname' => 'auth',
         'user' => 'auth',
         'password' => 'auth',
