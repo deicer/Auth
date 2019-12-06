@@ -4,6 +4,7 @@ namespace Auth\Controllers;
 
 use Auth\Models\User;
 use Auth\View;
+use Exception;
 use InvalidArgumentException;
 
 class   AuthController extends Controller
@@ -34,6 +35,9 @@ class   AuthController extends Controller
 
 	}
 
+	/**
+	 * @throws Exception
+	 */
 	public function register(): void
 	{
 		if ($this->isPost()) {
