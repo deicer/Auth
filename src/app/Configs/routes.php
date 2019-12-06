@@ -5,7 +5,7 @@ return [
         [
             '/' => 'MainController@index',
             '/login' => 'AuthController@login',
-            '/register' => 'AuthController@register'
-
+            '/register' => 'AuthController@register',
+            '/profile' => 'MainController@profile'
         ]
 ];
