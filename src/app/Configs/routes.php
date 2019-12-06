@@ -6,6 +6,8 @@ return [
             '/' => 'MainController@index',
             '/login' => 'AuthController@login',
             '/register' => 'AuthController@register',
-            '/profile' => 'MainController@profile'
+            '/logout' => 'AuthController@logout',
+            '/profile' => 'MainController@profile',
+            '/profile/edit' => 'MainController@profileEdit',
         ]
 ];

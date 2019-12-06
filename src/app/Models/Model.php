@@ -13,7 +13,7 @@ abstract class Model
      * Model constructor.
      * @param array $params
      */
-    public function __construct(array $params)
+    public function __construct(array $params = [])
     {
 
         $this->db = Db::get();
