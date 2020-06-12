@@ -1,7 +1,6 @@
 <?php
 
 /** @var array $userData */
-
 ?>
 
 <a href="/logout" class="btn btn-light">Выйти</a>
