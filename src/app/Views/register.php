@@ -1,7 +1,7 @@
 <form action="/register" method="post" class="text-center">
-    <?php if (!empty($error)): ?>
+    <?php if (!empty($error)) { ?>
         <div class="alert alert-danger" role="alert"><?= $error ?></div>
-    <?php endif; ?>
+    <?php } ?>
     <h2>Регистрация</h2>
     <div class="form-group">
     <label>Login <input type="text" name="login" class="form-control" value="<?= $_POST['login'] ?? '' ?>""></label>
